@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from flask import Flask, request
+from flask import Flask, jsonify, request
 import os
 import logging
 import json
@@ -36,7 +36,7 @@ def hello():
     driver.close()
     driver.quit()
 
-    response = Flask.jsonify(main_block_text)
+    response = jsonify(main_block_text)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
