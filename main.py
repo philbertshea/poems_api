@@ -36,7 +36,9 @@ def hello():
     driver.close()
     driver.quit()
 
-    return json.dumps(main_block_text)
+    response = Flask.jsonify(main_block_text)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
